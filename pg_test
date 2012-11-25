@@ -2,7 +2,34 @@
 
 <?php
 
-echo("This is a FizzBuzz Script");
+echo("This is a FizzBuzz Script \n");
+
+echo("From (integer):");
+$from = trim(fgets(STDIN));
+
+echo("To (integer):");
+$to = trim(fgets(STDIN));
+
+echo "Given range: ".$from."..".$to;
+
+echo "\n\nResult:";
+for($i=$from; $i<=$to; $i++){
+	$three_rem = $i%3; 
+	$five_rem = $i%5; 
+
+	if ($three_rem == 0) {
+	       $out = 'fizz';
+	}
+        if ($five_rem == 0) {
+	       $out = $out.'buzz';
+	}
+
+        if ($three_rem != 0 && $three_rem != 0)
+        { $out = $i; }
+
+	echo " {$out}";
+
+}
 
 ?>
 
