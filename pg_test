@@ -2,7 +2,7 @@
 
 <?php
 
-echo("This is a FizzBuzz Script \n");
+echo("This is a FizzBuzz Script \n\n");
 
 echo("From (integer):");
 $from = trim(fgets(STDIN));
@@ -12,7 +12,9 @@ $to = trim(fgets(STDIN));
 
 echo "Given range: ".$from."..".$to;
 
-echo "\n\nResult:";
+echo "\n\nResult (Question 1):";
+$arr = array();
+$j =0;
 for($i=$from; $i<=$to; $i++){
 	$three_rem = $i%3; 
 	$five_rem = $i%5; 
@@ -21,14 +23,35 @@ for($i=$from; $i<=$to; $i++){
 	       $out = 'fizz';
 	}
         if ($five_rem == 0) {
-	       $out = $out.'buzz';
+	       $out = 'buzz';
 	}
-
-        if ($three_rem != 0 && $three_rem != 0)
+        
+        if ($five_rem == 0 && $three_rem == 0) {
+               $out = 'fizzbuzz';
+        }
+        
+        if ($three_rem != 0 && $five_rem != 0)
         { $out = $i; }
 
 	echo " {$out}";
+        $arr[$j++]=$out;
+}
 
+echo "\n\nResult (Question 2):";
+function consecutive_ness($ele1,$ele2)
+{
+  if((gettype($ele1) != 'integer' && gettype($ele2) != 'integer') && $ele1 != $ele2) 
+    return true;
+  else
+    return false;
+}
+
+for($i=0; $i<sizeof($arr); $i++){
+        $out = $arr[$i];
+        if($i > 2 && consecutive_ness($arr[$i-1],$arr[$i-2])){
+         $out = 'bazz';
+        }
+        echo " {$out}";
 }
 
 ?>
